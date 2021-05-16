@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	int t;
+	cin>>t;
+	while(t--){
+		float k,e=1,w=0, step=1;
+		cin>>k;
+		while((e*100/(e+w))!=k){
+			if((e*100/(e+w))<k){
+				e++;
+			}
+			else{
+				w++;
+			}
+			step++;
+		}
+		cout<<step<<endl;
+	}
+	return 0;
+}
