@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+	ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+	int t;
+	cin>>t;
+	while(t--){
+		int n,m,k;
+		cin>>n>>m>>k;
+		string a,b,c="";
+		cin>>a>>b;
+		sort(a.begin(), a.end());
+		sort(b.begin(), b.end());
+		int i=0,j=0,ka=k,kb=k;
+		while(i<a.length() && j<b.length()){
+			if(a[i]<b[j]){
+				if(ka){
+					c += a[i];
+					i++;
+				    ka--;
+				    kb=k;
+				}
+				else{
+					c += b[j];
+					kb--;
+					j++;
+					ka=k;
+				}
+			}
+			else{
+				if(kb){
+					c += b[j];
+					j++;
+				    kb--;
+				    ka=k;
+				}
+				else{
+					c += a[i];
+					i++;
+					ka--;
+					kb=k;
+				}
+			}
+			//cout<<c<<i<<j<<endl;
+		}
+		cout<<c<<endl;
+	}
+	return 0;
+}
