@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		vector<int> v(n,0);
+		vector<int> odd, even;
+		for(int i=0; i<n; ++i){
+			cin>>v[i];
+			if(v[i]%2){
+				odd.push_back(v[i]);
+			}
+			else{
+				even.push_back(v[i]);
+			}	   
+		}
+		if(odd.size()>0){
+			cout<<even.size()<<endl;
+			continue;
+		}
+		int mini = INT_MAX;
+		int c=0;
+		for(int i: even){
+			c=0;
+			while(i%2==0){
+				c++;
+				i/=2;
+			}
+			mini = min(mini,c);
+		}
+		cout<<mini+even.size()-1<<endl;		
+	}
+	return 0;
+}
